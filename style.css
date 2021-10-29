@@ -1,87 +1,61 @@
-*{
-    list-style: none;
-    text-decoration: none;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
 }
 
-.wrapper {
-    height: 100%;
-    width: 100%;
-}
-.navbar{
-    width: 100%;
-    height: 60px;
-    background: blueviolet;
+.container {
+  background: #361212;
+  display: flex;
+  align-items: baseline;
+  padding: 0.5rem 5vw;
+  gap: 5rem;
 }
 
-.navbar >  ul {
-    display: flex;
-    justify-content: center;
+.logo {
+  color: white;
+  font-size: 37px;
+  font-weight: 500;
+  font-family: sans-serif;
+  letter-spacing: 1px;
 }
-.navbar ul li {
-    position: relative;
+.link {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: white;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
 }
+.link:hover {
+  color: rgb(17, 17, 17);
+}
+.dropdown + .link:focus,
+.link:hover {
+  color: black;
+}
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  position: absolute;
+  left: 0%;
+  top: 31px;
+  background-color: rgb(173, 73, 73);
+  padding: 0.92rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, -1);
+  opacity: 0;
 
-.navbar ul li a {
-    display: block;
-    color: #fff;
-    width: 180px;
-    height: 60px;
-    text-align: center;
-    padding: 20px 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: 0.2s ease;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transforms 150ms ease-in-out;
 }
-
-.navbar ul  li > a {
-    margin-right: 1px;
-}
-
-.navbar ul  li:last-child > a{
-    margin-right: 0;
-}
-
-.navbar ul  li a .icon{
-    width: 25px;
-    display:inline-block;
-}
-
-.navbar ul  li a:hover,
-.navbar ul  li a.active,
-.navbar .dd_menu ul li a:hover,
-.navbar .dd_menu ul li a.active{
- background: #c279b7
-}
-
-.navbar .dd_menu{
-    position:absolute;
-    top:80px;
-    left: 0;
-    display: none;
-    
-}
-.navbar ul  li a.a_parent.active + .dd_menu{
-    display:block;
-}
-
-.navbar .dd_menu ul li a{
-    width: 180px;
-    background: #9972bf;
-    text-align: left;
-    padding: 20px 18px;
-    
-}
-
-.navbar .dd_menu:before{
-    content: "";
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    border: 15px solid;
-    border-color: transparent transparent #9972bf transparent;
+.dropdown > .link:focus + .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
